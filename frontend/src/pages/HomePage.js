@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Upload, FileText, MessageSquare } from 'lucide-react';
+import { Upload, FileText, MessageSquare, Trash2 } from 'lucide-react';
 import apiService from '../services/api';
 import '../styles/HomePage.css';
 
@@ -23,6 +23,24 @@ function HomePage() {
     } catch (error) {
       setBackendStatus('disconnected');
       console.error('Backend connection failed:', error);
+    }
+  };
+
+  // ✅ 삭제 핸들러 함수
+  const handleDelete = async (e, docName) => {
+    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
+    if (!window.confirm(`정말 '${docName}' 문서를 삭제하시겠습니까?`)) {
+      return;
+    }
+
+    try {
+      await apiService.deleteDocument(docName);
+      // 목록에서 즉시 제거 (새로고침 없이 UI 반영)
+      setDocuments(prev => prev.filter(doc => doc.name !== docName));
+      alert('삭제되었습니다.');
+    } catch (error) {
+      console.error('Failed to delete:', error);
+      alert('삭제 실패: ' + error.message);
     }
   };
 
@@ -208,13 +226,38 @@ function HomePage() {
                   <FileText size={32} className="doc-icon" />
                   <h3>{doc.name}</h3>
                   <p>{doc.collections.length} collection(s)</p>
-                  <button
-                    className="chat-button"
-                    onClick={() => navigate('/chat', { state: { docName: doc.name } })}
-                  >
-                    <MessageSquare size={16} />
-                    질문하기
-                  </button>
+                  
+                  {/* 버튼 그룹을 위한 div 추가 (선택사항이지만 스타일링에 좋음) */}
+                  <div style={{ display: 'flex', gap: '8px', marginTop: '10px' }}>
+                    <button
+                      className="chat-button"
+                      onClick={() => navigate('/chat', { state: { docName: doc.name } })}
+                      style={{ flex: 1 }}
+                    >
+                      <MessageSquare size={16} />
+                      질문하기
+                    </button>
+                    
+                    {/* ✅ 삭제 버튼 */}
+                    <button 
+                      className="delete-button"
+                      onClick={(e) => handleDelete(e, doc.name)}
+                      style={{ 
+                        padding: '10px', 
+                        background: '#fee2e2', 
+                        color: '#ef4444',
+                        border: 'none',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                      }}
+                      title="문서 삭제"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

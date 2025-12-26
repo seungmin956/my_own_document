@@ -51,6 +51,8 @@ class QuestionRequest(BaseModel):
 
     question: str = Field(..., min_length=1, max_length=1000, description="사용자 질문")
     doc_name: Optional[str] = Field(None, description="특정 문서명 (없으면 전체 검색)")
+    # ✅ [추가] 대화 내역 필드 (기본값 [] 설정 필수!)
+    history: List[Dict[str, str]] = Field(default=[], description="이전 대화 내역")
 
     model_config = {
         "json_schema_extra": {
@@ -164,6 +166,15 @@ async def startup_event():
         document_processor = DocumentProcessor()
         print("[OK] 공유 인스턴스 초기화 완료\n")
 
+        # ⭐ [추가] LLM 워밍업 (서버 켤 때 미리 로딩하기)
+        print("[INIT] LLM 모델 워밍업 시작 (첫 로딩)...")
+        try:
+            # 빈 질문을 던져서 모델을 메모리에 올림
+            chatbot.ask("test", verbose=False)
+            print("[OK] LLM 워밍업 완료 (이제 사용자 답변은 빠릅니다!)")
+        except Exception as e:
+            print(f"[WARN] LLM 워밍업 실패 (첫 질문이 느릴 수 있음): {e}")
+
         print("[OK] 서버 준비 완료!")
         print("   API 문서: http://localhost:8000/docs")
         print("=" * 70 + "\n")
@@ -259,6 +270,7 @@ def ask_question(request: QuestionRequest):
         result = chatbot.ask(
             question=request.question,
             doc_name=request.doc_name,
+            chat_history=request.history,
             verbose=False,  # API는 로그 최소화
         )
 

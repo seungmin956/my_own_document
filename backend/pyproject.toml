@@ -5,7 +5,7 @@ description = "Document Assistant RAG System"
 authors = ["seungmin956  <seungminlee956@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.11,<3.13"
 
 # PyTorch CPU (배포용 - GPU 자동 감지)
 torch = "^2.5.0"
@@ -38,6 +38,11 @@ kiwipiepy = "^0.22.1"
 rank-bm25 = "^0.2.2"
 
 # PyTorch source 제거 - CPU 버전 사용
+langchain-openai = "^1.1.6"
+sympy = "^1.14.0"
+networkx = "^3.6.1"
+jinja2 = "^3.1.6"
+markupsafe = "^3.0.3"
 
 [build-system]
 requires = ["poetry-core"]

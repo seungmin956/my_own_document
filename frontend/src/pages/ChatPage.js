@@ -29,17 +29,30 @@ function ChatPage() {
     const userMessage = inputValue.trim();
     setInputValue('');
 
-    // 사용자 메시지 추가
-    setMessages(prev => [...prev, {
+    // 1. 사용자 메시지를 화면에 먼저 추가
+    const newUserMsg = {
       type: 'user',
       content: userMessage,
       timestamp: new Date()
-    }]);
-
+    };
+    
+    // setMessages는 비동기라 바로 반영이 안 될 수 있으므로
+    // 현재 messages 상태를 기준으로 히스토리를 만듭니다.
+    setMessages(prev => [...prev, newUserMsg]);
     setLoading(true);
 
     try {
-      const response = await apiService.askQuestion(userMessage, docName);
+      // ✅ [핵심 수정] 최근 대화 내역 추출 (History)
+      // 현재 보내는 질문(userMessage)은 제외하고, 화면에 있는 이전 메시지들만 가져옵니다.
+      // 최근 6개(질문3+답변3) 정도만 보내서 토큰을 아낍니다.
+      const history = messages.slice(-6).map(msg => ({
+        role: msg.type === 'user' ? 'user' : 'assistant', // 화면의 'type'을 백엔드가 아는 'role'로 변환
+        content: msg.content
+      }));
+
+      // ✅ API 호출 시 history 함께 전송
+      // (api.js도 수정하셨다면 세 번째 인자로 history를 받습니다)
+      const response = await apiService.askQuestion(userMessage, docName, history);
 
       // AI 응답 추가
       setMessages(prev => [...prev, {

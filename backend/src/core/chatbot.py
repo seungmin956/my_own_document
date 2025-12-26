@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 # from langchain_ollama import ChatOllama
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage
+from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langsmith import traceable
 from src.core.exceptions import (
     QdrantConnectionError,
@@ -26,7 +26,7 @@ from src.core.exceptions import (
 )
 from src.services.retrieval.bm25_retriever import BM25Retriever, hybrid_search
 
-# .env 파일 명시적 로딩 (수정됨!) ⭐
+# .env 파일 명시적 로딩
 env_path = Path(__file__).parent.parent.parent / ".env"
 load_dotenv(env_path)
 
@@ -66,7 +66,7 @@ else:
             self.rerank_model = dev_config.RERANK_MODEL
             self.rerank_max_candidates = 10
             self.rerank_top_k = 3
-            # BM25 설정 추가 ⭐
+            # BM25 설정 추가
             self.bm25_enabled = dev_config.BM25_ENABLED
             self.bm25_vector_weight = dev_config.BM25_VECTOR_WEIGHT
             self.bm25_weight = dev_config.BM25_BM25_WEIGHT
@@ -130,13 +130,14 @@ class DocumentChatbot:
         # 4. LLM 초기화
         # vLLM은 OpenAI API와 호환되므로 ChatOpenAI를 사용합니다.
         self.llm = ChatOpenAI(
-            model=config.llm_model,  # 예: "meta-llama/Meta-Llama-3-8B-Instruct"
+            model=config.llm_model,
             openai_api_key="EMPTY",  # vLLM 로컬 서버는 키가 필요 없음
-            # base_url="http://localhost:8000/v1",  # vLLM 기본 주소
             base_url="http://localhost:11434/v1",
             temperature=config.llm_temperature,
             max_tokens=4096,  # 답변 길이 넉넉하게
             streaming=True,
+            # ✅ [추가] 이 줄을 넣으면 모델이 절대 잠들지 않습니다 (메모리 계속 점유)
+            # model_kwargs={"keep_alive": -1},
         )
 
         # 5. Reranker (지연 로딩)
@@ -219,31 +220,36 @@ class DocumentChatbot:
         self,
         question: str,
         doc_name: Optional[str] = None,
+        chat_history: List[Dict[str, str]] = [],
         verbose: bool = True,
     ) -> Dict:
         try:
             if verbose:
-                print(f"\n{'='*70}")
-                print(f"[QUESTION] {question}")
-                print(f"{'='*70}\n")
+                print(f"\n{'='*70}\n[QUESTION] {question}\n{'='*70}\n")
 
-            # 1. 임베딩
+            # ✅ [추가] 대화 내역이 있으면 질문을 '검색 가능한 형태'로 고쳐쓰기
+            search_query = question
+            if chat_history:
+                if verbose:
+                    print("[0/4] 질문 재구성 중 (Contextualizing)...")
+                new_question = self._rewrite_question(question, chat_history)
+                if new_question != question:
+                    print(f"   -> 재구성된 질문: {new_question}")
+                    search_query = new_question
+
+            # 1. 임베딩 (재구성된 질문으로 검색!)
             if verbose:
                 print("[1/4] 질문 임베딩 생성 중...")
-            query_embedding = self._embed_query(question)
+            query_embedding = self._embed_query(
+                search_query
+            )  # 👈 question 대신 search_query 사용
 
-            # 2. Vector Search (또는 Hybrid Search)
+            # 2. 검색 (재구성된 질문으로 검색!)
             if verbose:
-                search_type = (
-                    "Hybrid Search (Vector + BM25)"
-                    if self.bm25_enabled
-                    else "Vector Search"
-                )
-                print(f"[2/4] {search_type} 중 (top_k={self.vector_top_k})...")
-
+                print(f"[2/4] 검색 중 ({search_query})...")
             search_results = self._search(
-                query_embedding, question, doc_name
-            )  # query 인자 추가!
+                query_embedding, search_query, doc_name
+            )  # 👈 여기도 search_query
 
             if not search_results:
                 if verbose:
@@ -308,7 +314,9 @@ class DocumentChatbot:
             if verbose:
                 print(f"\n[4/4] 답변 생성 중 (LLM: {self.llm.model})...")
 
-            answer = self._generate_answer(question, final_results, verbose=verbose)
+            answer = self._generate_answer(
+                question, final_results, chat_history, verbose=verbose
+            )
 
             if verbose:
                 print(f"\n{'='*70}")
@@ -365,6 +373,48 @@ class DocumentChatbot:
                 },
             }
 
+    # ✅ [수정] LangChain 스타일로 통일된 질문 재구성 메서드
+    def _rewrite_question(
+        self, question: str, chat_history: List[Dict[str, str]]
+    ) -> str:
+        """이전 대화 맥락을 고려하여 질문을 '완전한 문장'으로 재구성"""
+        try:
+            # 최근 대화 2개만 참조 (너무 길면 헷갈려함)
+            history_text = ""
+            for msg in chat_history[-2:]:
+                role = "User" if msg["role"] == "user" else "Assistant"
+                history_text += f"{role}: {msg['content']}\n"
+
+            # 1. 시스템 메시지 정의
+            sys_msg = SystemMessage(
+                content="""당신은 검색 엔진을 위한 '질문 최적화 도구'입니다.
+            사용자의 '현재 질문'이 이전 대화의 맥락(대명사 등)에 의존한다면, 이를 포함하여 '검색 가능한 완벽한 문장'으로 다시 쓰세요.
+            맥락이 필요 없다면 질문을 그대로 출력하세요.
+            설명이나 미사여구 없이 **오직 재구성된 질문 하나만** 출력하세요."""
+            )
+
+            # 2. 사용자 메시지 정의
+            user_msg = HumanMessage(
+                content=f"""
+            # 대화 기록:
+            {history_text}
+
+            # 현재 질문:
+            {question}
+
+            # 재구성된 질문:"""
+            )
+
+            # 3. LLM 호출
+            messages = [sys_msg, user_msg]
+            response = self.llm.invoke(messages)
+
+            return response.content.strip()
+
+        except Exception as e:
+            print(f"[WARN] 질문 재구성 실패: {e}")
+            return question
+
     @traceable(name="embed_query", tags=["embedding"])
     def _embed_query(self, question: str) -> List[float]:
         return self.embedding_generator.embed_query(question)
@@ -410,17 +460,17 @@ class DocumentChatbot:
             return results
 
         except Exception as e:
-            print(f"   [ERROR] 검색 중 에러: {e}")  # ⭐
+            print(f"   [ERROR] 검색 중 에러: {e}")
             import traceback
 
-            traceback.print_exc()  # ⭐
+            traceback.print_exc()
             raise SearchError(str(e))
 
     def _detect_language(self, text: str) -> str:
         """
         질문 언어 감지
 
-        규칙:cc
+        규칙:
         1. 한글 포함 → 한국어
         2. 한글 없고 영어 포함 → 영어
         3. 둘 다 없음 → 한국어 (기본값)
@@ -438,7 +488,11 @@ class DocumentChatbot:
 
     @traceable(name="generate_answer", tags=["generation"])
     def _generate_answer(
-        self, question: str, search_results: List[Dict], verbose: bool = True
+        self,
+        question: str,
+        search_results: List[Dict],
+        chat_history: List[Dict[str, str]] = [],
+        verbose: bool = True,
     ) -> str:
         """LLM으로 답변 생성"""
 
@@ -466,17 +520,23 @@ class DocumentChatbot:
         # ✅ 시스템 프롬프트 내용 정의 (질문은 제외)
         if question_lang == "Korean":
             sys_content = f"""당신은 문서 기반 질의응답 전문가입니다. 주어진 문서에서만 정보를 추출하여 정확하게 답변하세요.
+            
+            # 절대 준수 사항
+            1. '以下', '例如' 같은 한자를 절대 사용하지 마세요. 대신 '다음은', '예를 들어' 같은 한국어를 쓰세요.
+            2. 문법과 맞춤법을 완벽한 한국어로 구사하세요.
+            3. 답변은 친절하고 논리적으로 상세하게 작성하세요.
 
-        # 참고 문서
-        {context}
+            # 참고 문서
+            {context}
 
-        # 답변 규칙 (반드시 준수)
-        1. 위 참고 문서에 명시된 내용만 사용
-        2. 문서에 없는 내용은 절대 추측하지 말 것
-        3. 답을 찾을 수 없으면 "문서에서 해당 정보를 찾을 수 없습니다"라고만 답변
-        4. 출처 페이지 번호 반드시 포함 (예: "3페이지에 따르면...")
-        5. 각 문장은 20단어 이내로 짧고 명확하게 작성
-        6. **맞춤법과 문법을 정확하게 지켜서 한국어로만 답변**"""
+            # 답변 규칙 (반드시 준수)
+            1. 위 참고 문서에 명시된 내용만 사용
+            2. 문서에 없는 내용은 절대 추측하지 말 것
+            3. 답을 찾을 수 없으면 "문서에서 해당 정보를 찾을 수 없습니다"라고만 답변
+            4. 출처 페이지 번호 반드시 포함 (예: "3페이지에 따르면...")
+            5. 질문에 대한 답변은 논리적이고 상세하게 설명할 것
+            6. 필요하다면 번호(Bullet points)를 매겨 가독성을 높일 것
+            7. **맞춤법과 문법을 정확하게 지켜서 한국어로만 답변**"""
         else:
             sys_content = f"""You are a document-based Q&A expert. Extract information only from the given document and answer accurately.
 
@@ -492,7 +552,18 @@ class DocumentChatbot:
             6. **Answer in English only**"""
 
         # ✅ 메시지 객체 생성 (자동으로 Llama 3 특수 토큰 적용됨)
-        messages = [SystemMessage(content=sys_content), HumanMessage(content=question)]
+        messages = [SystemMessage(content=sys_content)]
+
+        # 1. 히스토리 주입 (최근 3개 턴만 반영)
+        # 프론트에서 넘어온 history: [{"role": "user", "content": "A"}, {"role": "assistant", "content": "B"}, ...]
+        for msg in chat_history:
+            if msg["role"] == "user":
+                messages.append(HumanMessage(content=msg["content"]))
+            elif msg["role"] == "assistant":
+                messages.append(AIMessage(content=msg["content"]))
+
+        # 2. 현재 질문 주입
+        messages.append(HumanMessage(content=question))
 
         # 시작 시간
         start_time = time.time()
@@ -503,7 +574,7 @@ class DocumentChatbot:
 
         # LLM 호출 (prompt 대신 messages 전달)
         try:
-            for chunk in self.llm.stream(messages):  # 👈 여기가 핵심 변경!
+            for chunk in self.llm.stream(messages):
                 # 타임아웃 체크
                 if time.time() - start_time > max_time:
                     raise TimeoutError(f"답변 생성 시간 초과 ({max_time}초)")
@@ -552,13 +623,16 @@ class DocumentChatbot:
         """응답 정제"""
         import re
 
-        # 1. 한자 제거
-        text = re.sub(r"[一-龯]", "", text)
+        # 1. 한자 제거 (범위: 4E00-9FFF)
+        text = re.sub(r"[\u4e00-\u9fff]", "", text)
 
-        # 2. 연속된 줄바꿈 정리
+        # 2. 괄호 안에 한자가 남은 경우 (예: (以下)) 제거
+        text = re.sub(r"\(\s*\)", "", text)
+
+        # 3. 연속된 줄바꿈 정리
         text = re.sub(r"\n\s*\n\s*\n+", "\n\n", text)
 
-        # 3. 앞뒤 공백 제거
+        # 4. 앞뒤 공백 제거
         text = text.strip()
 
         return text

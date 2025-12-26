@@ -42,11 +42,12 @@ export const apiService = {
   },
 
   // 질문하기
-  async askQuestion(question, docName = null) {
+  async askQuestion(question, docName = null, history = []) {
     try {
       const response = await api.post('/ask', {
         question,
         doc_name: docName,
+        history, // ✅ 백엔드로 대화 내역 전송
       });
       return response.data;
     } catch (error) {
