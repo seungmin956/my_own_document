@@ -1,0 +1,7 @@
+service:
+  api_key: "my-secure-portfolio-key-2025"
+  
+storage:
+  storage_path: /qdrant/storage
+
+telemetry_disabled: true

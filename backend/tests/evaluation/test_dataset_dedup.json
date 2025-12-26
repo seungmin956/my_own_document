@@ -1,0 +1,1294 @@
+[
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "목적",
+      "온디바이스",
+      "온디바이스 AI",
+      "AI",
+      "장점",
+      "ONDI바이스 AI"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_57",
+      "./data/_10-k-q4-2023-as-filed_page_9",
+      "./data/_10-k-q4-2023-as-filed_page_8",
+      "./data/_10-k-q4-2023-as-filed_page_53",
+      "./data/_10-k-q4-2023-as-filed_page_70",
+      "./data/_10-k-q4-2023-as-filed_page_12",
+      "./data\\spri_ai_brief_2023년12월호_f_page_1",
+      "./data/_10-k-q4-2023-as-filed_page_15"
+    ],
+    "source_page": 1,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f",
+    "merged_from": 10
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략 차이는?",
+    "difficulty": "hard",
+    "keywords": [
+      "전략 차이",
+      "googles",
+      "AI 전략",
+      "삼성",
+      "-google",
+      "google",
+      "AI",
+      "삼성 AI",
+      "구글 AI",
+      "구글"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_11",
+      "./data\\form10-k_page_8",
+      "./data/_10-k-q4-2023-as-filed_page_8",
+      "./data/_10-k-q4-2023-as-filed_page_53",
+      "./data/_10-k-q4-2023-as-filed_page_12",
+      "./data\\form10-k_page_3",
+      "./data\\spri_ai_brief_2023년12월호_f_page_1",
+      "./data/_10-k-q4-2023-as-filed_page_15",
+      "./data/_10-k-q4-2023-as-filed_page_10"
+    ],
+    "source_page": 11,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 10
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략은 어떤 차이가 있는가?",
+    "difficulty": "hard",
+    "keywords": [
+      "google",
+      "AI 전략",
+      "삼성",
+      "구글"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_32",
+      "./data/_10-k-q4-2023-as-filed_page_68",
+      "./data/_10-k-q4-2023-as-filed_page_11",
+      "./data\\spri_ai_brief_2023년12월호_f_page_20"
+    ],
+    "source_page": 32,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed",
+    "merged_from": 4
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점을 설명해 주세요.",
+    "difficulty": "medium",
+    "keywords": [
+      "AI",
+      "장점",
+      "AI 장점",
+      "온디바이스 AI"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_0",
+      "./data\\form10-k_page_15"
+    ],
+    "source_page": 0,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 2
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략 차이를 설명해 주세요.",
+    "difficulty": "hard",
+    "keywords": [
+      "googl",
+      "Google",
+      "삼성",
+      "AI 전략"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_7",
+      "./data\\form10-k_page_15"
+    ],
+    "source_page": 15,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 2
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스가 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "AI",
+      "삼성",
+      "가우스"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_9",
+      "./data\\form10-k_page_11",
+      "./data/_10-k-q4-2023-as-filed_page_70",
+      "./data/_10-k-q4-2023-as-filed_page_12",
+      "./data\\form10-k_page_8"
+    ],
+    "source_page": 11,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 6
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점은?",
+    "difficulty": "medium",
+    "keywords": [
+      "장점",
+      "온디바이스 AI"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_9",
+      "./data\\form10-k_page_8",
+      "./data\\form10-k_page_11"
+    ],
+    "source_page": 11,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 3
+  },
+  {
+    "type": "conceptual",
+    "question": "on디바이스 AI의 장점은อะไร인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "장점",
+      "on디바이스 AI",
+      "온디바이스 AI"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_3",
+      "./data/_10-k-q4-2023-as-filed_page_68"
+    ],
+    "source_page": 68,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed",
+    "merged_from": 2
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략 차이是什么?",
+    "difficulty": "hard",
+    "keywords": [
+      "گو글",
+      "AI 전략",
+      "삼성",
+      "구글"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_9",
+      "./data/_10-k-q4-2023-as-filed_page_12"
+    ],
+    "source_page": 12,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed",
+    "merged_from": 3
+  },
+  {
+    "type": "analytical",
+    "question": "삼성 가우스와 구글의 AI 전략 차이점은 무엇인가?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성 가우스",
+      "AI 전략",
+      "google",
+      "구글"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_10",
+      "./data/_10-k-q4-2023-as-filed_page_57"
+    ],
+    "source_page": 10,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f",
+    "merged_from": 2
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스의 제품은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "제품",
+      "주요 제품"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_3",
+      "./data/_10-k-q4-2023-as-filed_page_8"
+    ],
+    "source_page": 3,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 2
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스가 제공하는 AI 서비스는 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "AI 서비스",
+      "서비스"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_7",
+      "./data/_10-k-q4-2023-as-filed_page_8"
+    ],
+    "source_page": 7,
+    "source_section": null,
+    "doc_name": "./data\\form10-k",
+    "merged_from": 2
+  },
+  {
+    "type": "factual",
+    "question": "2023년 9월 30일 기준에, RAG 시스템의 평가용 질문을 생성하는 전문가가 가지는 자산은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "cash equivalents",
+      "cash",
+      "marketable securities"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_38"
+    ],
+    "source_page": 38,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed",
+    "merged_from": 2
+  },
+  {
+    "type": "factual",
+    "question": "AIMLA 2024은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "AIMLA",
+      "AI"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_1"
+    ],
+    "source_page": 1,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "factual",
+    "question": "머신러닝 기술의 평균 임금 프리미엄은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "머신러닝",
+      "임금 프리미엄"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_20"
+    ],
+    "source_page": 20,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "conceptual",
+    "question": "AI 기술 유형 중 자연어처리 기술의 장점은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "자연어처리",
+      "AI 기술"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_20"
+    ],
+    "source_page": 20,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "factual",
+    "question": "바이든 대통령이 발표한 AI 행정명령에 명시된 안전과 보안 기준은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "AI 행정명령",
+      "보안 criterion"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_3"
+    ],
+    "source_page": 3,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점 중 한 가지는 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "온디바이스 AI",
+      "장점"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_3"
+    ],
+    "source_page": 3,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글이 AI 전략에 사용하는 다양한 방법은 어떤가?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성 AI",
+      "구글 AI",
+      "전략"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_3"
+    ],
+    "source_page": 3,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "factual",
+    "question": "2023년, 2022년 및 2021년에 vested된 RSUS의 총 수는 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "RSU",
+      "삼성"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_47"
+    ],
+    "source_page": 47,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "RSU가 vests할 때 Company의 과세义務는 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "과세義무",
+      "RSU"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_47"
+    ],
+    "source_page": 47,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "2023년, 2022년 및 2021年に vested된 RSUS의 총 수를 비교하여 어떤 차이를 발견할 수 있는가?",
+    "difficulty": "hard",
+    "keywords": [
+      "RSU",
+      "삼성",
+      "과세"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_47"
+    ],
+    "source_page": 47,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "RAG 시스템에 대한 평가를 위해Tax Fees의aggregate fees을 disclose 하였은 Samsung 가우스가 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "RAG 시스템",
+      "Tax Fees"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_15"
+    ],
+    "source_page": 15,
+    "source_section": null,
+    "doc_name": "./data\\form10-k"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스의 현금 수입은 what 인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "현금 수입",
+      "삼성 가우스"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_32"
+    ],
+    "source_page": 32,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "Deferred revenue는 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "Deferred revenue",
+      "비용 지출"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_32"
+    ],
+    "source_page": 32,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스가 어떤 종류의 자산에.write-down을 할 수 있는가?",
+    "difficulty": "easy",
+    "keywords": [
+      "사모자산",
+      "write-down"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_11"
+    ],
+    "source_page": 11,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI를 사용할 때,什麼样的 장점이 있을 것인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "AI",
+      "장점"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_11"
+    ],
+    "source_page": 11,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2024 년 노트의 재무 수익률이 지불되는 날은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "2024 년 노트",
+      "재무 수익率"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_68"
+    ],
+    "source_page": 68,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2024 년 노트의 maturity date は what 이고?",
+    "difficulty": "easy",
+    "keywords": [
+      "2024 년 노트",
+      "maturity date"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_63"
+    ],
+    "source_page": 63,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "2025 년 노트가 what을 의미하는가?",
+    "difficulty": "medium",
+    "keywords": [
+      "2025 년 노트",
+      "meaning"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_63"
+    ],
+    "source_page": 63,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "2024 년 노트와 0.000% 2025 년 노트의 차이점은 what이며?",
+    "difficulty": "hard",
+    "keywords": [
+      "2024 년 노트",
+      "0.000% 2025 년 노트",
+      "차이점"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_63"
+    ],
+    "source_page": 63,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "RAG 시스템의 objetivo는 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "RAG",
+      "시스템"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_53"
+    ],
+    "source_page": 53,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2021 년은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "2021",
+      "년"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_35"
+    ],
+    "source_page": 35,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "공동이의 revenue/net of taxes를 어떤 방법으로 계산하는가?",
+    "difficulty": "medium",
+    "keywords": [
+      "공통이의",
+      "revenue",
+      "net of taxes"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_35"
+    ],
+    "source_page": 35,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성 가우스와 구글은 무엇의 차이가 있는가?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성 가우스",
+      "google",
+      "AI 전략"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_35"
+    ],
+    "source_page": 35,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "RAG 시스템이 사용한 크라우드소싱 플랫폼은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "GitHub",
+      "Papers with Code"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_10"
+    ],
+    "source_page": 10,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "conceptual",
+    "question": "data 생태계 분석 결과, 데이터 출처 입증과 관련된 구조적 문제가 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "데이터 생태계",
+      "데이터 출처 입증"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_10"
+    ],
+    "source_page": 10,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "factual",
+    "question": "미국 연방거래위원회 (FTC)가 저작권청(U.S. Copyright Office, USCO)에 제출한 의견서에 대한 내용은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "미국 연방거래위원회",
+      "저작권청"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_7"
+    ],
+    "source_page": 7,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "conceptual",
+    "question": "생산 AI로 인해 창작자와 소비자의 피해가 발생하는 이유는 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "생산 AI",
+      "창작자",
+      "소비자"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_7"
+    ],
+    "source_page": 7,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글이 AI 전략에 사용하는 기술은 어떤 것일까?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성",
+      "구글",
+      "AI 전략"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_7"
+    ],
+    "source_page": 7,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "factual",
+    "question": "2023년, 2022년, 2021년에 대한 운영 lease와 ROU 자산의 총 가치는 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "operating lease",
+      "ROU asset"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_44"
+    ],
+    "source_page": 44,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "가우스의 ROU 자산이 leases로 대체된后, company의 금전적인 위치에 대한 해석은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "ROU asset",
+      "lease liability"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_44"
+    ],
+    "source_page": 44,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "2023년과 2022년에 대한 ROU 자산 및 leases의 차이, 그 이유는 무엇인가?",
+    "difficulty": "hard",
+    "keywords": [
+      "ROU asset",
+      "lease liability",
+      "operating lease"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_44"
+    ],
+    "source_page": 44,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2023년 9월 30일까지 Apple Inc.의 재정적 부수자 수는 어떻게 WAS?",
+    "difficulty": "easy",
+    "keywords": [
+      "Apple",
+      "재정적 부수자"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_0"
+    ],
+    "source_page": 0,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "Apple Inc.가 사용하는 AI 전략의 목적은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "AI 전략",
+      "목적"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_0"
+    ],
+    "source_page": 0,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "Samsung과 Google가 사용하는 AI 전략의 차이점을 설명해 주세요.",
+    "difficulty": "hard",
+    "keywords": [
+      "AI 전략",
+      "차이점"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_0"
+    ],
+    "source_page": 0,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스가 제공하는 가상 마시나 서비스의 특징은?",
+    "difficulty": "easy",
+    "keywords": [
+      "가상 마시나",
+      "삼성 가우스"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_10"
+    ],
+    "source_page": 10,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점 중에서 가장 중요한 것은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "온디바이스 AI",
+      "장점"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_10"
+    ],
+    "source_page": 10,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "L. Baier, N. Kühl, and G. Satzger가 발표한 papers 중에서 'How to Cope with Change? Preserving Validity of Predictive Services over Time'은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "바이어",
+      "쿠헬",
+      "사츠거"
+    ],
+    "ground_truth": [
+      "./data\\2004.04686v1_page_9"
+    ],
+    "source_page": 9,
+    "source_section": null,
+    "doc_name": "./data\\2004.04686v1"
+  },
+  {
+    "type": "conceptual",
+    "question": "전기장치의 전력 공급을 위한 RAG 시스템의 장점은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "전력 공급",
+      "RAG 시스템",
+      "전기장치"
+    ],
+    "ground_truth": [
+      "./data\\2004.04686v1_page_9"
+    ],
+    "source_page": 9,
+    "source_section": null,
+    "doc_name": "./data\\2004.04686v1"
+  },
+  {
+    "type": "analytical",
+    "question": "온디바이스 AI와 유비데이트 AI를 비교하여 장단점은 무엇인가?",
+    "difficulty": "hard",
+    "keywords": [
+      "온디바이스 AI",
+      "유비데이트 AI"
+    ],
+    "ground_truth": [
+      "./data\\2004.04686v1_page_9"
+    ],
+    "source_page": 9,
+    "source_section": null,
+    "doc_name": "./data\\2004.04686v1"
+  },
+  {
+    "type": "factual",
+    "question": "apple inc.의 주로 사용되는 코인是什么?",
+    "difficulty": "easy",
+    "keywords": [
+      "apple",
+      "코인"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_29"
+    ],
+    "source_page": 29,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "2023년 12월에 Apple Inc.가 발표한 새로운 AI 기술은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "AI",
+      "Apple Inc."
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_29"
+    ],
+    "source_page": 29,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 연구 성과 차이를 비교해 보십시오.",
+    "difficulty": "hard",
+    "keywords": [
+      "AI",
+      "research"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_29"
+    ],
+    "source_page": 29,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스의 전략은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "전략"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_12"
+    ],
+    "source_page": 12,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2023 년의 U.S. 달러에 대한 비율은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "비율",
+      "U.S. 달러"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_23"
+    ],
+    "source_page": 23,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "iPhone와 Services는どのように增长했을까?",
+    "difficulty": "medium",
+    "keywords": [
+      "iPhone",
+      "Services"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_23"
+    ],
+    "source_page": 23,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "Mac과 iPad의/net sales 감소는 어떤 요인으로 인해 발생した가?",
+    "difficulty": "hard",
+    "keywords": [
+      "Mac",
+      "iPad"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_23"
+    ],
+    "source_page": 23,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점은 무엇일 수 exist?",
+    "difficulty": "medium",
+    "keywords": [
+      "온디바이스 AI",
+      "장점"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_7"
+    ],
+    "source_page": 7,
+    "source_section": null,
+    "doc_name": "./data\\form10-k"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략은 어떤 차이가がある가?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성 AI",
+      "google AI",
+      "전략 차이"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_70"
+    ],
+    "source_page": 70,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스가 주로 사용하는 데이터 센터의 위치는 gì?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "데이터 센터"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_19"
+    ],
+    "source_page": 19,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "사용자 experience를 향상시키기 위한 온디바이스 AI의 주요 방법은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "온디바이스 AI",
+      "사용자 experience"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_19"
+    ],
+    "source_page": 19,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글이 AI 분야에서 가장 많은 투자를 가졌을 때, 그 이유는 무엇인가?",
+    "difficulty": "hard",
+    "keywords": [
+      "AI 투자",
+      "삼성",
+      "구글"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_19"
+    ],
+    "source_page": 19,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "2023년 9월 30일 기준에, RAG 시스템의 평가용 질문을 생성하는 전문가가 가지는 자산은 어떤 investment category를 가지고 있는가?",
+    "difficulty": "hard",
+    "keywords": [
+      "cash",
+      "cash equivalents",
+      "marketable securities"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_38"
+    ],
+    "source_page": 38,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2023년 R&D 비용 tăng trưởng의 주요 원인은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "R&D 비용",
+      "headcount"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_25"
+    ],
+    "source_page": 25,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "ONDI바이스 AI의 목적은什么인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "ONDI바이스 AI",
+      "목적"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_25"
+    ],
+    "source_page": 25,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략이 어떻게 다른가?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성",
+      "구글",
+      "AI 전략"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_25"
+    ],
+    "source_page": 25,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스가什么样的产品을 생산하는가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "产品"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_15"
+    ],
+    "source_page": 15,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "Google, Anthropic, Microsoft가 지원하는 AI 안전 기금은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "AI 안전 기금",
+      "AI 레드팀"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_9"
+    ],
+    "source_page": 9,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "conceptual",
+    "question": "AI 안전 기금을 통해 개발되는 모델 평가 기법의 목적은 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "모델 평가 기법",
+      "AI 안전 기금"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_9"
+    ],
+    "source_page": 9,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글이 AI 전략에 사용하는 방법이 khác는가?",
+    "difficulty": "hard",
+    "keywords": [
+      "AI 전략",
+      "삼성",
+      "googl"
+    ],
+    "ground_truth": [
+      "./data\\spri_ai_brief_2023년12월호_f_page_9"
+    ],
+    "source_page": 9,
+    "source_section": null,
+    "doc_name": "./data\\spri_ai_brief_2023년12월호_f"
+  },
+  {
+    "type": "factual",
+    "question": "삼성 가우스의 основ 기술은 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "삼성 가우스",
+      "기계학"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_0"
+    ],
+    "source_page": 0,
+    "source_section": null,
+    "doc_name": "./data\\form10-k"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략이 어떻게 다 different할 수 있는가?",
+    "difficulty": "hard",
+    "keywords": [
+      "삼성 AI",
+      "구글 AI",
+      "AI 전략"
+    ],
+    "ground_truth": [
+      "./data\\form10-k_page_0"
+    ],
+    "source_page": 0,
+    "source_section": null,
+    "doc_name": "./data\\form10-k"
+  },
+  {
+    "type": "factual",
+    "question": "2024년까지의 Bond 이스유의 종류는 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "Bond 이스유",
+      "2024년"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_57"
+    ],
+    "source_page": 57,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "Exchange Act Rules 13a-15(f)와 15d-15(f)에 정의된 평가 용도로 설계 된 disclosure controls and procedures가 RegistrANT에 대해 무엇을 하는지 설명하시기 바랍니다.",
+    "difficulty": "easy",
+    "keywords": [
+      "disclosure",
+      "controls",
+      "procedures"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_78"
+    ],
+    "source_page": 78,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "온디바이스 AI의 장점은 무엇인가? onsideration에 대한 설명을 해주세요.",
+    "difficulty": "medium",
+    "keywords": [
+      "AI",
+      "onsideration"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_78"
+    ],
+    "source_page": 78,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "삼성과 구글의 AI 전략이 어떤 차이가 있으려면? comparison base로 answer를 구체화하시기 바랍니다.",
+    "difficulty": "hard",
+    "keywords": [
+      "AI",
+      "strategies",
+      "comparison"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_78"
+    ],
+    "source_page": 78,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "factual",
+    "question": "2023년, 2022년, 2021年の-net-sales의China region에 대한 figure는 무엇인가?",
+    "difficulty": "easy",
+    "keywords": [
+      "China",
+      "net sales"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_50"
+    ],
+    "source_page": 50,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "conceptual",
+    "question": "삼성 가우스가 AI를 위한 전략을 사용하는 이유는 무엇인가?",
+    "difficulty": "medium",
+    "keywords": [
+      "AI",
+      "전략"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_50"
+    ],
+    "source_page": 50,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  },
+  {
+    "type": "analytical",
+    "question": "2023년, 2022년, 2021年的-net-sales의U.S. region과 China region에 대한 comparison은 무엇인가?",
+    "difficulty": "hard",
+    "keywords": [
+      "U.S.",
+      "China",
+      "net sales"
+    ],
+    "ground_truth": [
+      "./data/_10-k-q4-2023-as-filed_page_50"
+    ],
+    "source_page": 50,
+    "source_section": null,
+    "doc_name": "./data/_10-k-q4-2023-as-filed"
+  }
+]

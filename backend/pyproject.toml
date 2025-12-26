@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "myown-ai-agent"
+version = "0.1.0"
+description = "Document Assistant RAG System"
+authors = ["seungmin956  <seungminlee956@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+# PyTorch CPU (배포용 - GPU 자동 감지)
+torch = "^2.5.0"
+torchvision = "^0.20.0"
+torchaudio = "^2.5.0"
+
+# NumPy & Transformers
+numpy = "^2.1.0"  # LangChain 0.4.1이 요구하는 버전
+transformers = "^4.46.0"
+sentence-transformers = "^3.3.0"
+
+# Qdrant
+qdrant-client = "^1.16.1"
+
+# LangChain
+langchain-community = "^0.4.1"
+langchain = "^1.0.0"
+langchain-text-splitters = "^1.0.0"
+langchain-ollama = "^1.0.0"
+langchain-core = "^1.1.0"
+langsmith = "^0.4.49"
+
+# 나머지
+pdfplumber = "^0.11.8"
+fastapi = "^0.122.0"
+uvicorn = "^0.38.0"
+pymupdf = "^1.26.6"
+python-dotenv = "^1.2.1"
+kiwipiepy = "^0.22.1"
+rank-bm25 = "^0.2.2"
+
+# PyTorch source 제거 - CPU 버전 사용
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

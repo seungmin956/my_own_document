@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(timeout 5 bash -c 'while ! curl -s http://localhost:8000/health > /dev/null; do sleep 1; done && echo \"\"Backend is running\"\"')",
+      "Bash(poetry run python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
