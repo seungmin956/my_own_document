@@ -12,7 +12,10 @@ import os
 from pathlib import Path
 from typing import List, Dict, Optional
 from dotenv import load_dotenv
-from langchain_ollama import ChatOllama
+
+# from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import SystemMessage, HumanMessage
 from langsmith import traceable
 from src.core.exceptions import (
     QdrantConnectionError,
@@ -125,9 +128,14 @@ class DocumentChatbot:
             raise OllamaConnectionError(model=config.embedding_model)
 
         # 4. LLM 초기화
-        self.llm = ChatOllama(
-            model=config.llm_model,
+        # vLLM은 OpenAI API와 호환되므로 ChatOpenAI를 사용합니다.
+        self.llm = ChatOpenAI(
+            model=config.llm_model,  # 예: "meta-llama/Meta-Llama-3-8B-Instruct"
+            openai_api_key="EMPTY",  # vLLM 로컬 서버는 키가 필요 없음
+            # base_url="http://localhost:8000/v1",  # vLLM 기본 주소
+            base_url="http://localhost:11434/v1",
             temperature=config.llm_temperature,
+            max_tokens=4096,  # 답변 길이 넉넉하게
             streaming=True,
         )
 
@@ -450,61 +458,52 @@ class DocumentChatbot:
             )
 
         context = "\n\n".join(context_parts)
-        context = context[:1000]  # 3b 모델은 1000자로 충분 (속도 최적화)
+        context = context[:4000]
 
         # 언어 감지
         question_lang = self._detect_language(question)
 
-        # LangChain 스타일 범용 프롬프트 (1b 모델 최적화)
+        # ✅ 시스템 프롬프트 내용 정의 (질문은 제외)
         if question_lang == "Korean":
-            prompt = f"""당신은 문서 기반 질의응답 전문가입니다. 주어진 문서에서만 정보를 추출하여 정확하게 답변하세요.
+            sys_content = f"""당신은 문서 기반 질의응답 전문가입니다. 주어진 문서에서만 정보를 추출하여 정확하게 답변하세요.
 
-# 참고 문서
-{context}
+        # 참고 문서
+        {context}
 
-# 질문
-{question}
-
-# 답변 규칙 (반드시 준수)
-1. 위 참고 문서에 명시된 내용만 사용
-2. 문서에 없는 내용은 절대 추측하지 말 것
-3. 답을 찾을 수 없으면 "문서에서 해당 정보를 찾을 수 없습니다"라고만 답변
-4. 출처 페이지 번호 반드시 포함 (예: "3페이지에 따르면...")
-5. 각 문장은 20단어 이내로 짧고 명확하게 작성
-6. **맞춤법과 문법을 정확하게 지켜서 한국어로만 답변** (영어/일본어/중국어 절대 사용 금지)
-
-# 답변 작성
-답변:"""
+        # 답변 규칙 (반드시 준수)
+        1. 위 참고 문서에 명시된 내용만 사용
+        2. 문서에 없는 내용은 절대 추측하지 말 것
+        3. 답을 찾을 수 없으면 "문서에서 해당 정보를 찾을 수 없습니다"라고만 답변
+        4. 출처 페이지 번호 반드시 포함 (예: "3페이지에 따르면...")
+        5. 각 문장은 20단어 이내로 짧고 명확하게 작성
+        6. **맞춤법과 문법을 정확하게 지켜서 한국어로만 답변**"""
         else:
-            prompt = f"""You are a document-based Q&A expert. Extract information only from the given document and answer accurately.
+            sys_content = f"""You are a document-based Q&A expert. Extract information only from the given document and answer accurately.
 
-# Reference Document
-{context}
+            # Reference Document
+            {context}
 
-# Question
-{question}
+            # Answer Rules (Must Follow)
+            1. Use only information explicitly stated in the document above
+            2. Never guess or add information not in the document
+            3. If answer not found, say only "I cannot find this information in the document"
+            4. Always include source page number (e.g., "According to page 3...")
+            5. Write 2-3 sentences, be concise
+            6. **Answer in English only**"""
 
-# Answer Rules (Must Follow)
-1. Use only information explicitly stated in the document above
-2. Never guess or add information not in the document
-3. If answer not found, say only "I cannot find this information in the document"
-4. Always include source page number (e.g., "According to page 3...")
-5. Write 2-3 sentences, be concise
-6. **Answer in English only**
-
-# Answer
-Answer:"""
+        # ✅ 메시지 객체 생성 (자동으로 Llama 3 특수 토큰 적용됨)
+        messages = [SystemMessage(content=sys_content), HumanMessage(content=question)]
 
         # 시작 시간
         start_time = time.time()
         first_token_time = None
         full_response = ""
         chunk_count = 0
-        max_time = 120  # 30초 → 120초로 증가 (CPU 환경 고려)
+        max_time = 120
 
-        # LLM 호출
+        # LLM 호출 (prompt 대신 messages 전달)
         try:
-            for chunk in self.llm.stream(prompt):
+            for chunk in self.llm.stream(messages):  # 👈 여기가 핵심 변경!
                 # 타임아웃 체크
                 if time.time() - start_time > max_time:
                     raise TimeoutError(f"답변 생성 시간 초과 ({max_time}초)")

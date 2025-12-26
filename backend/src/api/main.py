@@ -158,7 +158,9 @@ async def startup_event():
         from src.services.document.processor import DocumentProcessor
 
         print("\n[INIT] 공유 인스턴스 초기화 중...")
-        embedding_generator = EmbeddingGenerator(mode="local", verbose=True)  # model은 .env에서 로드
+        embedding_generator = EmbeddingGenerator(
+            mode="local", verbose=True
+        )  # model은 .env에서 로드
         document_processor = DocumentProcessor()
         print("[OK] 공유 인스턴스 초기화 완료\n")
 
@@ -337,7 +339,7 @@ def list_documents():
 
 
 @app.post("/upload", response_model=UploadResponse, tags=["Documents"])
-async def upload_document(
+def upload_document(
     file: UploadFile = File(..., description="PDF 파일"),
     background_tasks: BackgroundTasks = None,
 ):
@@ -357,7 +359,7 @@ async def upload_document(
             raise HTTPException(status_code=400, detail="PDF 파일만 업로드 가능합니다")
 
         # 파일 크기 제한 (100MB)
-        content = await file.read()
+        content = file.file.read()
         if len(content) > 100 * 1024 * 1024:
             raise HTTPException(
                 status_code=400, detail="파일 크기는 100MB 이하여야 합니다"
@@ -373,6 +375,8 @@ async def upload_document(
 
         with open(file_path, "wb") as f:
             f.write(content)
+
+        file.file.close()
 
         # 문서 처리 (전역 인스턴스 재사용)
         chunks, config, metadata = document_processor.process(
